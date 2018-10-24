@@ -1,6 +1,8 @@
 FROM ubuntu:18.10
 MAiNTAINER eperez@arsys.es
 
+RUN useradd elena
+
 RUN apt-get update
 RUN apt-get install nginx -y
 
@@ -11,6 +13,10 @@ RUN apt-get update
 
 EXPOSE 80
 
-WORKDIR /var/www/html/
+ENV DATABASE_IP 192.167.2.9
 
-ENTRYPOINT ["nginx","-g daemon off;"]
+RUN usermod -aG root elena
+
+USER elena
+
+#ENTRYPOINT ["nginx","-g daemon off;"]
