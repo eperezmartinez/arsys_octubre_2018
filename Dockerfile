@@ -19,4 +19,4 @@ RUN usermod -aG root elena
 
 USER elena
 
-#ENTRYPOINT ["nginx","-g daemon off;"]
+VOLUME ["/my-data"]
